@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserAddRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\User;
+use DB;
+use App\Exports\userExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 class UserController extends Controller
 {
     /**
@@ -24,6 +29,7 @@ class UserController extends Controller
             $users = User::paginate(2);
         }
         return view('user.index')->withUsers($users);
+        
     }
 
     /**
@@ -84,4 +90,9 @@ class UserController extends Controller
         session()->flash('notif', 'Deleting Successfully');
         return redirect()->route('users.index');
     }
+
+    public function excelExport(){
+        return Excel::download(new userExport, 'User.xlsx');
+    }
+   
 }

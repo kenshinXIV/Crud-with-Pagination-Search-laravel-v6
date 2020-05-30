@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Routes For User
 Route::get('/','UserController@index')->name('users.index');
 Route::get('/users/create','UserController@create')->name('users.create');
+Route::get('/users/excelExport','UserController@excelExport')->name('users.excelExport');
 Route::post('/users','UserController@store')->name('users.store');
 Route::get('/users/{user}','UserController@edit')->name('users.edit');
 Route::post('/users/{user}','UserController@update')->name('users.update');

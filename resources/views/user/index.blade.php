@@ -18,8 +18,11 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a href="{{ route('users.create')}}" class="btn btn-info btn-block">Create New User</a>
+                   </div>
+                    <div class="col-md-3">
+                        <a href="{{ route('users.excelExport')}}" class="btn btn-success btn-block">Export</a>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-6">
                         <form action="{{ route('users.index')}}" method="Get">
                             @csrf
                             <div class="input-group">
